@@ -1,0 +1,79 @@
+/*
+ * *************************************
+ * Plugin Name: Custom Post Shortcode Creator
+ * Description: Create Shortcodes for any custom Post types.
+ * Version: 1.0.0
+ * Author: Sarang Shahane.
+ * Author URI: http://sarangshahane.com/
+ * Year of creation: 2021
+ * *************************************
+*/
+
+.sas-workshops{
+    margin: 0 0 1em;
+    padding: 0;
+    list-style: none outside;
+    clear: both;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sas-workshops.columns-3 li.sas-workshop {
+    width: 31.2%;
+    width: calc(33.33% - 25px);
+    text-align: left;
+    margin-bottom: 2.5em;
+    float: left;
+    margin: 0 25px 2.992em 0;
+    padding: 0;
+    position: relative;
+    margin-left: 0;
+}
+
+.sas-workshop .sas-workshop-summary-wrap{
+	line-height: 4;
+}
+
+.sas-workshop a.sas-workshop__button {
+    font-family: inherit;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-color: #fc7978;
+    background-color: #fc7978;
+    border-radius: 50px;
+    padding-top: 12px;
+    padding-right: 28px;
+    padding-bottom: 12px;
+    padding-left: 28px;
+    font-size: 0.8rem;
+    color: #ffffff;
+}
+
+.sas-workshops li.sas-workshop .sas-workshop-link {
+    position: relative;
+    display: block;
+}
+
+.sas-workshops li.sas-workshop a img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 0 1em;
+    box-shadow: none;
+}
+
+.sas-workshops li.sas-workshop .sas-workshop-category {
+    font-size: .85em;
+    margin-bottom: .5em;
+    display: block;
+    line-height: 1.3;
+    opacity: .6;
+}
+
+.sas-workshops li.sas-workshop .sas-workshop__title {
+    margin-bottom: .5em;
+    padding: 0;
+    font-size: 1em;
+}
