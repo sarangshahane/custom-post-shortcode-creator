@@ -1,48 +1,107 @@
-# Wordpress - ignore core, configuration, examples, uploads and logs.
-# https://github.com/github/gitignore/blob/main/WordPress.gitignore
+# Custom Post Shortcode Creator Plugin - .gitignore
+# WordPress Plugin Development
 
-# Core
-#
-# Note: if you want to stage/commit WP core files
-# you can delete this whole section/until Configuration.
-/wp-admin/
-/wp-content/index.php
-/wp-content/languages
-/wp-content/plugins/index.php
-/wp-content/themes/index.php
-/wp-includes/
-/index.php
-/license.txt
-/readme.html
-/wp-*.php
-/xmlrpc.php
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
 
-# Configuration
-wp-config.php
+# Build outputs
+assets/min-css/
+assets/min-js/
+build/
+dist/
+*.zip
+custom-post-shortcode-creator-*.zip
 
-# Example themes
-/wp-content/themes/twenty*/
+# WordPress specific
+languages/*.mo
+languages/*.po
+!languages/custom-post-shortcode-creator.pot
 
-# Example plugin
-/wp-content/plugins/hello.php
-
-# Uploads
-/wp-content/uploads/
-
-# Log files
+# Logs and debugging
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+logs/
 
-# htaccess
-/.htaccess
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-# All plugins
-#
-# Note: If you wish to whitelist plugins,
-# uncomment the next line
-#/wp-content/plugins
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.lnk
 
-# All themes
-#
-# Note: If you wish to whitelist themes,
-# uncomment the next line
-#/wp-content/themes
+# Cache and temporary files
+.cache/
+.parcel-cache
+.tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+
+# Environment files
+.env
+.env.local
+.env.test
+.env.production
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Test files
+tests/coverage/
+phpunit.xml
+.phpunit.result.cache
+coverage/
+*.lcov
+.nyc_output
+
+# Development tools
+.grunt
+.npm
+.eslintcache
+*.tsbuildinfo
+.node_repl_history
+.yarn-integrity
+
+# Package managers
+bower_components/
+jspm_packages/
+vendor/
+composer.lock
+
+# Archive files
+*.tar
+*.tar.gz
+*.rar
+*.7z
+*.tgz
+
+# Database dumps
+*.sql
+*.sql.gz
+
+# Configuration files with sensitive data
+config.php
+wp-config-local.php
