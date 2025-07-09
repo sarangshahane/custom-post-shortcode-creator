@@ -1,0 +1,177 @@
+/**
+ * Custom Post Shortcode Creator - Meta Boxes CSS
+ *
+ * @package custom-post-shortcode-creator
+ */
+
+/* Modern WordPress 6.8 compatible meta box styling */
+#cpsc_workshop_details {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+
+/* Meta fields container */
+.cpsc-meta-fields {
+    padding: 16px;
+}
+
+/* Field group styling */
+.cpsc-field-group {
+    margin-bottom: 20px;
+}
+
+.cpsc-field-group:last-child {
+    margin-bottom: 0;
+}
+
+/* Label styling */
+.cpsc-field-group > label {
+    display: block;
+    font-weight: 600;
+    color: #1d2327;
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Location type select styling */
+.cpsc-location-type-select {
+    min-width: 200px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.cpsc-location-type-select:focus {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+    outline: 2px solid transparent;
+}
+
+/* Location address textarea styling */
+#_cpsc_workshop_location_address {
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    resize: vertical;
+}
+
+#_cpsc_workshop_location_address:focus {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+    outline: 2px solid transparent;
+}
+
+/* Date and time input styling */
+#_cpsc_workshop_start_date,
+#_cpsc_workshop_start_time,
+#_cpsc_workshop_end_time {
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    min-width: 150px;
+}
+
+#_cpsc_workshop_start_date:focus,
+#_cpsc_workshop_start_time:focus,
+#_cpsc_workshop_end_time:focus {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+    outline: 2px solid transparent;
+}
+
+/* Time fields container for better layout */
+.cpsc-time-fields {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cpsc-time-fields .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cpsc-time-fields label {
+    font-weight: 500;
+    color: #1d2327;
+    font-size: 13px;
+}
+
+.cpsc-time-fields input[type="time"] {
+    min-width: 120px;
+}
+
+/* Description text styling */
+#cpsc_workshop_details .description {
+    margin-top: 6px;
+    color: #646970;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* Required field indicator */
+#cpsc_workshop_details input[required] {
+    border-left: 3px solid #2271b1;
+}
+
+/* Smooth transitions for show/hide */
+#cpsc-location-address-row {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Modern form validation styling */
+#cpsc_workshop_details .form-table input:invalid,
+#cpsc_workshop_details .form-table select:invalid {
+    border-color: #d63638;
+}
+
+#cpsc_workshop_details .form-table input:valid,
+#cpsc_workshop_details .form-table select:valid {
+    border-color: #00a32a;
+}
+
+/* Responsive design */
+@media (max-width: 782px) {
+    .cpsc-meta-fields {
+        padding: 12px;
+    }
+    
+    .cpsc-field-group {
+        margin-bottom: 16px;
+    }
+    
+    .cpsc-location-type-select,
+    #_cpsc_workshop_start_date,
+    #_cpsc_workshop_start_time,
+    #_cpsc_workshop_end_time,
+    #_cpsc_workshop_location_address {
+        width: 100%;
+        max-width: none;
+    }
+    
+    .cpsc-time-fields {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .cpsc-time-fields .form-field {
+        width: 100%;
+    }
+    
+    .cpsc-time-fields input[type="time"] {
+        min-width: 100%;
+    }
+} 

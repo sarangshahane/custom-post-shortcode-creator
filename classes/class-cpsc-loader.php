@@ -107,6 +107,7 @@ if ( ! class_exists( 'Cpsc_Loader' ) ) {
 		 */
 		public function include_required_files() {
 			require_once CPSC_DIR . 'classes/class-cpsc-shortcodes.php';
+			require_once CPSC_DIR . 'classes/class-cpsc-meta-boxes.php';
 		}
 
 
