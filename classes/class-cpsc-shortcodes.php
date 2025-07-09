@@ -44,57 +44,105 @@ class Cpsc_Frontend {
 	 * Workshops Shortcodes
 	 *
 	 * @since 1.0.0
+	 * @param array $atts Shortcode attributes.
+	 * @return string
 	 */
-	public function load_workshop_shortcode( ) {
+	public function load_workshop_shortcode( $atts = array() ) {
 
-		if( is_admin() ){
+		if ( is_admin() ) {
 			return;
 		}
 
+		$atts = shortcode_atts(
+			array(
+				'type' => 'all', // all, upcoming, past, today, tomorrow
+			),
+			$atts,
+			'workshops'
+		);
+
+		$type = strtolower( trim( $atts['type'] ) );
+		$today = date( 'Y-m-d' );
+		$tomorrow = date( 'Y-m-d', strtotime( '+1 day' ) );
+
+		$meta_query = array();
+
+		// Filter by event type
+		switch ( $type ) {
+			case 'upcoming':
+				$meta_query[] = array(
+					'key'     => '_cpsc_workshop_start_date',
+					'value'   => $today,
+					'compare' => '>=',
+					'type'    => 'DATE',
+				);
+				break;
+			case 'past':
+				$meta_query[] = array(
+					'key'     => '_cpsc_workshop_start_date',
+					'value'   => $today,
+					'compare' => '<',
+					'type'    => 'DATE',
+				);
+				break;
+			case 'today':
+				$meta_query[] = array(
+					'key'     => '_cpsc_workshop_start_date',
+					'value'   => $today,
+					'compare' => '=',
+					'type'    => 'DATE',
+				);
+				break;
+			case 'tomorrow':
+				$meta_query[] = array(
+					'key'     => '_cpsc_workshop_start_date',
+					'value'   => $tomorrow,
+					'compare' => '=',
+					'type'    => 'DATE',
+				);
+				break;
+			case 'all':
+			default:
+				// No meta_query for all
+				break;
+		}
+
 		$args = array(
-                'post_type'      => 'workshop',
-                'posts_per_page' => '-1',
-                'publish_status' => 'published',
-             );
+			'post_type'      => 'workshop',
+			'posts_per_page' => '-1',
+			'post_status'    => 'publish',
+		);
 
-	    $result ='';
-	 
-	    $query = new WP_Query($args);
-	 	
-	 	if($query->have_posts()) :
-	 	
-	 	$result .= '<ul class="sas-workshops columns-3">';
+		if ( ! empty( $meta_query ) ) {
+			$args['meta_query'] = $meta_query;
+		}
 
-	        while($query->have_posts()) :
-	 	
-	        $query->the_post() ;
+		$result = '';
+		$query = new WP_Query( $args );
 
-	        $post_image = get_the_post_thumbnail( null, array(300,300), '' ) ? get_the_post_thumbnail( null, array(300,300), '' ) : 
-	        '<img src="' . CPSC_URL . "assets/images/400x400.jpg" . '">';
-	        
-			$result .=  '<li class="sas-workshop type-workshop">';
-			$result .= 	'<div class="sas-workshop-thumbnail-wrap">';
-			$result .= 		'<a href="' . get_the_permalink() . '" class="sas-workshop-link">' .	$post_image . '</a>';
-			$result .= 	'</div>';
+		if ( $query->have_posts() ) :
+			$result .= '<ul class="sas-workshops columns-3">';
+			while ( $query->have_posts() ) :
+				$query->the_post();
+				$post_image = get_the_post_thumbnail( null, array(300,300), '' ) ? get_the_post_thumbnail( null, array(300,300), '' ) : '<img src="' . CPSC_URL . "assets/images/400x400.jpg" . '">';
+				$result .=  '<li class="sas-workshop type-workshop">';
+				$result .=  '<div class="sas-workshop-thumbnail-wrap">';
+				$result .=  '<a href="' . get_the_permalink() . '" class="sas-workshop-link">' . $post_image . '</a>';
+				$result .=  '</div>';
+				$result .=  '<div class="sas-workshop-summary-wrap">';
+				$result .=  '<span class="sas-workshop-category">Workshop</span> ';
+				$result .=  '<a href="' . get_the_permalink() . '" class="sas-workshop__link">';
+				$result .=  '<h2 class="sas-workshop__title">' . get_the_title() . '</h2>';
+				$result .=  '</a>';
+				$result .=  '<a href="' . get_the_permalink() . '" class="sas-workshop__button">Read More</a>';
+				$result .=  '</div>';
+				$result .=  '</li>';
+			endwhile;
+			$result .= '</ul>';
+			wp_reset_postdata();
+		endif;
 
-			$result .= 	'<div class="sas-workshop-summary-wrap">';
-			$result .= 		'<span class="sas-workshop-category">Workshop</span> ';
-			$result .= 			'<a href="' . get_the_permalink() . '" class="sas-workshop__link">';
-			$result .= 				'<h2 class="sas-workshop__title">' . get_the_title() . '</h2>';
-			$result .= 			'</a>';
-			$result .=			'<a href="' . get_the_permalink() . '" class="sas-workshop__button">Read More</a>';
-			$result .= 		'</div>';
-			$result .= 	'</li>';
-			
-	        endwhile;
-	 		
-	 		$result .= '</ul>';
-
-	        wp_reset_postdata();
-	 
-	    endif;    
-	 
-	    return $result;
+		return $result;
 	}
 
 	
