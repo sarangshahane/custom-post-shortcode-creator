@@ -31,7 +31,10 @@
 }
 
 .sas-workshop .sas-workshop-summary-wrap{
-	line-height: 4;
+	/* line-height: 4; */
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
 }
 
 .sas-workshop a.sas-workshop__button {
@@ -49,6 +52,7 @@
     padding-left: 28px;
     font-size: 0.8rem;
     color: #ffffff;
+    width:fit-content;
 }
 
 .sas-workshops li.sas-workshop .sas-workshop-link {
@@ -70,6 +74,15 @@
     display: block;
     line-height: 1.3;
     opacity: .6;
+}
+
+.sas-workshops li.sas-workshop .sas-workshop__event-date {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1;
 }
 
 .sas-workshops li.sas-workshop .sas-workshop__title {

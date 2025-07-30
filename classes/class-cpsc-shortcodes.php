@@ -56,12 +56,15 @@ class Cpsc_Frontend {
 		$atts = shortcode_atts(
 			array(
 				'type' => 'all', // all, upcoming, past, today, tomorrow
+				'show_date' => true,
 			),
 			$atts,
 			'workshops'
 		);
 
 		$type = strtolower( trim( $atts['type'] ) );
+		$show_date = wp_unslash( boolval( $atts['show_date'] ) );
+
 		$today = date( 'Y-m-d' );
 		$tomorrow = date( 'Y-m-d', strtotime( '+1 day' ) );
 
@@ -124,6 +127,7 @@ class Cpsc_Frontend {
 			$result .= '<ul class="sas-workshops columns-3">';
 			while ( $query->have_posts() ) :
 				$query->the_post();
+
 				$post_image = get_the_post_thumbnail( null, array(300,300), '' ) ? get_the_post_thumbnail( null, array(300,300), '' ) : '<img src="' . CPSC_URL . "assets/images/400x400.jpg" . '">';
 				$result .=  '<li class="sas-workshop type-workshop">';
 				$result .=  '<div class="sas-workshop-thumbnail-wrap">';
@@ -131,6 +135,12 @@ class Cpsc_Frontend {
 				$result .=  '</div>';
 				$result .=  '<div class="sas-workshop-summary-wrap">';
 				$result .=  '<span class="sas-workshop-category">Workshop</span> ';
+				if( $show_date ){
+					$start_date = get_post_meta( get_the_ID(), '_cpsc_workshop_start_date', true );
+					$formatted_date = date('d-M-Y', strtotime($start_date));
+
+					$result .=  '<span class="sas-workshop__event-date"><span class="dashicons dashicons-calendar-alt"></span>' . $formatted_date . '</span>';
+				}
 				$result .=  '<a href="' . get_the_permalink() . '" class="sas-workshop__link">';
 				$result .=  '<h2 class="sas-workshop__title">' . get_the_title() . '</h2>';
 				$result .=  '</a>';
