@@ -16,7 +16,12 @@ Create Shortcodes for any custom Post types.
 
 == Changelog ==
 
-= Version 1.0.0 - Development =
+= Version 1.0.1 - August 27th, 2025 =
+* Added a new shortcode to display upcoming events.
+* Added a new shortcode to display upcoming workshops.
+* Added a new shortcode to display upcoming courses.
+
+=Version 1.0.0 - July 6th, 2025 =
 * Initial Release
 
 == Upgrade Notice ==
