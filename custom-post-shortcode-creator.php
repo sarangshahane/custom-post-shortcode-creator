@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Custom Post Shortcode Creator
  * Description: Create Shortcodes for any custom Post types.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Sarang Shahane
  * Author URI: http://sarangshahane.com/
  * Text Domain: custom-post-shortcode-creator
