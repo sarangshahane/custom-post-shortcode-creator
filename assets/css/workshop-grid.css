@@ -28,6 +28,7 @@
     padding: 0;
     position: relative;
     margin-left: 0;
+    flex: 1 1 200px;
 }
 
 .sas-workshop .sas-workshop-summary-wrap{
