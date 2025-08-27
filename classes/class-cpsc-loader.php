@@ -72,7 +72,7 @@ if ( ! class_exists( 'Cpsc_Loader' ) ) {
 			define( 'CPSC_BASE', plugin_basename( CPSC_FILE ) );
 			define( 'CPSC_DIR', plugin_dir_path( CPSC_FILE ) );
 			define( 'CPSC_URL', plugins_url( '/', CPSC_FILE ) );
-			define( 'CPSC_VER', '1.0.0' );
+			define( 'CPSC_VER', '1.0.1' );
 			define( 'CPSC_SLUG', 'custom-post-shortcode-creator' );
 			define( 'CPSC_NAME', 'Custom Post Shortcode Creator' );
 

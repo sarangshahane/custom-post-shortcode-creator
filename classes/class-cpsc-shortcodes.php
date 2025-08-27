@@ -78,7 +78,7 @@ class Cpsc_Frontend {
 	/**
 	 * Fetch workshops based on type
 	 *
-	 * @since 1.0.0
+	 * @since 1.0.1
 	 * @param array $atts Shortcode attributes.
 	 * @return array
 	 */
@@ -170,7 +170,7 @@ class Cpsc_Frontend {
 	/**
 	 * Fetch published TutorLMS courses
 	 *
-	 * @since 1.0.0
+	 * @since 1.0.1
 	 * @return array
 	 */
 	private function fetch_tutorlms_courses() {
@@ -210,7 +210,7 @@ class Cpsc_Frontend {
 	/**
 	 * Display combined workshops and courses
 	 *
-	 * @since 1.0.0
+	 * @since 1.0.1
 	 * @param array $items Array of workshops and courses.
 	 * @param array $atts Shortcode attributes.
 	 * @return string

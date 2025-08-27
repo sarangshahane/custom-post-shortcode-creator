@@ -1,6 +1,6 @@
 {
 	"name": "custom-post-shortcode-creator",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Create Shortcodes for any custom Post types.",
 	"main": "Gruntfile.js",
 	"scripts": {
